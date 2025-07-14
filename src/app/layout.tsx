@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Forecazt - AI Weather Forecasting",
-  description: "Built to make you extraordinarily informed about weather patterns worldwide. Experience the future of weather forecasting with AI-powered insights.",
+  title: "Weather App",
+  description: "A beautiful weather app inspired by Cursor.com design",
 };
 
 export default function RootLayout({
@@ -15,9 +16,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} dark bg-black text-white`}>
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

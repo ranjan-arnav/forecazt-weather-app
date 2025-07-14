@@ -29,14 +29,14 @@ export function Header({ onSearchClick, onForecastClick }: HeaderProps) {
   };
 
   return (
-    <header className="fixed top-3 sm:top-6 left-3 sm:left-6 right-3 sm:right-6 z-50">
-      <nav className="backdrop-blur-lg bg-black/20 border border-white/10 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+    <header className="fixed top-6 left-6 right-6 z-50">
+      <nav className="backdrop-blur-lg bg-black/20 border border-white/10 rounded-2xl px-6 py-4 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center">
         {/* Logo - Cursor style */}
         <div className="flex items-center justify-between lg:justify-start">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-lg sm:text-xl font-bold text-white"
+            className="text-xl font-bold text-white"
           >
             Forecazt
           </motion.div>
@@ -46,7 +46,7 @@ export function Header({ onSearchClick, onForecastClick }: HeaderProps) {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors text-white"
           >
-            {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 

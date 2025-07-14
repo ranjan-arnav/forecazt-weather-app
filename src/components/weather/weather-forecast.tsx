@@ -30,7 +30,7 @@ export function WeatherForecast({ forecast, city }: WeatherForecastProps) {
       animate={{ opacity: 1, y: 0 }}
       className="space-y-4 sm:space-y-6"
     >
-      <div className="text-center mb-6 sm:mb-8 px-2">
+      <div className="text-center mb-6 sm:mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
           7-Day Forecast for {city}
         </h2>
@@ -40,23 +40,23 @@ export function WeatherForecast({ forecast, city }: WeatherForecastProps) {
       </div>
 
       {/* 7-Day Forecast Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3 sm:gap-4 mx-2 sm:mx-0">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
         {forecast.map((day, index) => (
           <motion.div
             key={day.date}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6 hover:bg-black/30 transition-all duration-300 group"
+            className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-3 sm:p-4 lg:p-6 hover:bg-black/30 transition-all duration-300 group"
           >
             <div className="text-center">
               {/* Day Name */}
-              <div className="text-xs sm:text-sm font-medium text-gray-400 mb-2">
+              <div className="text-xs sm:text-sm font-medium text-gray-400 mb-1 sm:mb-2">
                 {index === 0 ? 'Today' : day.dayName}
               </div>
               
               {/* Date */}
-              <div className="text-xs text-gray-500 mb-3 sm:mb-4">
+              <div className="text-xs text-gray-500 mb-2 sm:mb-4">
                 {new Date(day.date).toLocaleDateString('en-US', { 
                   month: 'short', 
                   day: 'numeric' 
@@ -64,13 +64,13 @@ export function WeatherForecast({ forecast, city }: WeatherForecastProps) {
               </div>
 
               {/* Weather Icon */}
-              <div className="text-3xl sm:text-4xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
+              <div className="text-2xl sm:text-3xl lg:text-4xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform">
                 {getWeatherIcon(day.icon)}
               </div>
 
               {/* Temperature */}
               <div className="mb-2 sm:mb-3">
-                <div className="text-xl sm:text-2xl font-bold text-white">
+                <div className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
                   {day.temperature}°
                 </div>
                 {day.minTemperature && (
@@ -81,7 +81,7 @@ export function WeatherForecast({ forecast, city }: WeatherForecastProps) {
               </div>
 
               {/* Condition */}
-              <div className="text-xs sm:text-sm text-gray-300 mb-3 sm:mb-4 capitalize">
+              <div className="text-xs sm:text-sm text-gray-300 mb-2 sm:mb-4 capitalize">
                 {day.condition}
               </div>
 
@@ -106,9 +106,9 @@ export function WeatherForecast({ forecast, city }: WeatherForecastProps) {
       </div>
 
       {/* Weekly Summary */}
-      <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6 mt-6 sm:mt-8 mx-2 sm:mx-0">
-        <h3 className="text-lg sm:text-xl font-semibold text-white mb-4">📊 Weekly Summary</h3>
-        <div className="grid grid-cols-3 gap-4 sm:gap-6">
+      <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6 mt-6 sm:mt-8">
+        <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">📊 Weekly Summary</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           <div className="text-center">
             <div className="text-xl sm:text-2xl font-bold text-orange-400 mb-1">
               {Math.max(...forecast.map(d => d.temperature))}°C
@@ -133,12 +133,12 @@ export function WeatherForecast({ forecast, city }: WeatherForecastProps) {
       </div>
 
       {/* Weather Pattern Insights */}
-      <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6 mx-2 sm:mx-0">
-        <h3 className="text-lg sm:text-xl font-semibold text-white mb-4">🔍 Weather Insights</h3>
+      <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6">
+        <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">🔍 Weather Insights</h3>
         <div className="space-y-3">
           {forecast.filter(d => (d.precipitation || 0) > 0).length > 0 && (
             <div className="flex items-start gap-3">
-              <span className="text-blue-400 text-lg">🌧️</span>
+              <span className="text-blue-400">🌧️</span>
               <div>
                 <div className="text-white font-medium text-sm sm:text-base">Precipitation Expected</div>
                 <div className="text-gray-300 text-xs sm:text-sm">
@@ -153,7 +153,7 @@ export function WeatherForecast({ forecast, city }: WeatherForecastProps) {
           
           {Math.max(...forecast.map(d => d.temperature)) - Math.min(...forecast.map(d => d.minTemperature || d.temperature)) > 15 && (
             <div className="flex items-start gap-3">
-              <span className="text-orange-400 text-lg">🌡️</span>
+              <span className="text-orange-400">🌡️</span>
               <div>
                 <div className="text-white font-medium text-sm sm:text-base">High Temperature Variation</div>
                 <div className="text-gray-300 text-xs sm:text-sm">
@@ -166,7 +166,7 @@ export function WeatherForecast({ forecast, city }: WeatherForecastProps) {
           
           {forecast.filter(d => (d.windSpeed || 0) > 20).length > 0 && (
             <div className="flex items-start gap-3">
-              <span className="text-green-400 text-lg">💨</span>
+              <span className="text-green-400">💨</span>
               <div>
                 <div className="text-white font-medium text-sm sm:text-base">Windy Conditions</div>
                 <div className="text-gray-300 text-xs sm:text-sm">

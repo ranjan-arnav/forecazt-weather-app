@@ -52,16 +52,16 @@ export default function Home() {
       <Header onSearchClick={handleSearchClick} onForecastClick={handleForecastClick} />
       
       {/* Hero Section with Cursor-style design */}
-      <section className="relative px-4 pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-32 lg:pb-24">
-        {/* Enhanced Cursor-style background pattern - optimized for mobile */}
-        <div className="absolute inset-0 overflow-hidden opacity-20 sm:opacity-30">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-          <div className="absolute top-3/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse [animation-delay:2s]"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse [animation-delay:4s]"></div>
+      <section className="relative px-4 pt-24 pb-16 lg:pt-32 lg:pb-24">
+        {/* Enhanced Cursor-style background pattern */}
+        <div className="absolute inset-0 overflow-hidden opacity-30">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+          <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse [animation-delay:2s]"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse [animation-delay:4s]"></div>
         </div>
 
         <div className="relative max-w-6xl mx-auto text-center">
-          {/* Main heading with enhanced Cursor-style typography - mobile optimized */}
+          {/* Main heading with enhanced Cursor-style typography */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 text-white leading-tight">
             The AI Weather
             <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -69,20 +69,20 @@ export default function Home() {
             </span>
           </h1>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4">
             Built to make you extraordinarily informed about weather patterns worldwide.
-            <span className="hidden sm:block mt-2">Experience the future of weather forecasting with AI-powered insights.</span>
+            <span className="block mt-2">Experience the future of weather forecasting with AI-powered insights.</span>
           </p>
           
           {/* Weather Search Component */}
-          <div className="max-w-lg mx-auto px-2">
+          <div className="max-w-lg mx-auto px-4">
             <WeatherSearch ref={searchRef} onSearch={handleSearch} />
           </div>
         </div>
       </section>
 
       {/* Main Content Area */}
-      <section className="px-2 sm:px-4 pb-12 sm:pb-24">
+      <section className="px-2 sm:px-4 pb-24">
         <div className="max-w-6xl mx-auto">
           {/* Error Display */}
           {error && (
@@ -100,53 +100,47 @@ export default function Home() {
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center py-8 sm:py-12"
+              className="text-center py-12"
             >
               <div className="inline-block w-8 h-8 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
-              <p className="text-white mt-4 text-sm sm:text-base">Fetching weather data...</p>
+              <p className="text-white mt-4">Fetching weather data...</p>
             </motion.div>
           )}
 
           {/* Weather Data Display */}
           {weatherData && !loading && (
-            <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-8">
               {/* Current Weather Card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6 lg:p-8 mx-2 sm:mx-0"
+                className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6 lg:p-8 mx-2"
               >
-                <div className="grid grid-cols-1 gap-6 lg:gap-8">
-                  <div className="text-center lg:text-left">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-2">
-                      {weatherData.city}, {weatherData.country}
-                    </h2>
-                    <div className="text-5xl sm:text-6xl font-bold text-white mb-3 sm:mb-4">
-                      {weatherData.temperature}°C
+                <div className="text-center lg:text-left">
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+                    {weatherData.city}, {weatherData.country}
+                  </h2>
+                  <div className="text-5xl sm:text-6xl font-bold text-white mb-4">
+                    {weatherData.temperature}°C
+                  </div>
+                  <div className="text-lg sm:text-xl text-gray-300 capitalize mb-6">
+                    {weatherData.condition}
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 text-sm">
+                    <div className="text-gray-400">
+                      Humidity: <span className="text-white block sm:inline">{weatherData.humidity}%</span>
                     </div>
-                    <div className="text-lg sm:text-xl text-gray-300 capitalize mb-4 sm:mb-6">
-                      {weatherData.condition}
+                    <div className="text-gray-400">
+                      Wind: <span className="text-white block sm:inline">{weatherData.windSpeed} km/h</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4 text-sm">
-                      <div className="text-gray-400 bg-white/5 p-3 rounded-lg">
-                        <div className="font-medium mb-1">Humidity</div>
-                        <div className="text-white text-lg">{weatherData.humidity}%</div>
-                      </div>
-                      <div className="text-gray-400 bg-white/5 p-3 rounded-lg">
-                        <div className="font-medium mb-1">Wind Speed</div>
-                        <div className="text-white text-lg">{weatherData.windSpeed} km/h</div>
-                      </div>
-                      <div className="text-gray-400 bg-white/5 p-3 rounded-lg">
-                        <div className="font-medium mb-1">Visibility</div>
-                        <div className="text-white text-lg">{weatherData.visibility} km</div>
-                      </div>
-                      {weatherData.pressure && (
-                        <div className="text-gray-400 bg-white/5 p-3 rounded-lg">
-                          <div className="font-medium mb-1">Pressure</div>
-                          <div className="text-white text-lg">{weatherData.pressure} hPa</div>
-                        </div>
-                      )}
+                    <div className="text-gray-400">
+                      Visibility: <span className="text-white block sm:inline">{weatherData.visibility} km</span>
                     </div>
+                    {weatherData.pressure && (
+                      <div className="text-gray-400">
+                        Pressure: <span className="text-white block sm:inline">{weatherData.pressure} hPa</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>

@@ -34,12 +34,7 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
 
   const CustomTooltip = ({ active, payload, label }: {
     active?: boolean;
-    payload?: Array<{
-      color: string;
-      name: string;
-      value: number;
-      unit?: string;
-    }>;
+    payload?: Array<{ name: string; value: number; unit?: string; color?: string }>;
     label?: string;
   }) => {
     if (active && payload && payload.length) {
@@ -63,7 +58,7 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
       animate={{ opacity: 1, y: 0 }}
       className="space-y-6 sm:space-y-8"
     >
-      <div className="text-center mb-6 sm:mb-8 px-2">
+      <div className="text-center mb-6 sm:mb-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
           24-Hour Weather Analytics for {city}
         </h2>
@@ -73,8 +68,8 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
       </div>
 
       {/* Temperature Chart */}
-      <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6 mx-2 sm:mx-0">
-        <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 flex items-center gap-2">
+      <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6">
+        <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 flex items-center gap-2">
           🌡️ Temperature Trend
         </h3>
         <div className="h-48 sm:h-64">
@@ -90,13 +85,15 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
               <XAxis 
                 dataKey="timeFormatted" 
                 stroke="#9ca3af" 
-                fontSize={12}
+                fontSize={10}
                 interval="preserveStartEnd"
+                tick={{ fontSize: 10 }}
               />
               <YAxis 
                 stroke="#9ca3af" 
-                fontSize={12}
+                fontSize={10}
                 domain={['dataMin - 2', 'dataMax + 2']}
+                tick={{ fontSize: 10 }}
               />
               <Tooltip content={<CustomTooltip />} />
               <Area
@@ -115,8 +112,8 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
       </div>
 
       {/* Humidity & Wind Speed Chart */}
-      <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6 mx-2 sm:mx-0">
-        <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 flex items-center gap-2">
+      <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6">
+        <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 flex items-center gap-2">
           💨 Humidity & Wind Speed
         </h3>
         <div className="h-48 sm:h-64">
@@ -126,21 +123,24 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
               <XAxis 
                 dataKey="timeFormatted" 
                 stroke="#9ca3af" 
-                fontSize={12}
+                fontSize={10}
                 interval="preserveStartEnd"
+                tick={{ fontSize: 10 }}
               />
               <YAxis 
                 yAxisId="humidity"
                 stroke="#60a5fa" 
-                fontSize={12}
+                fontSize={10}
                 domain={[0, 100]}
+                tick={{ fontSize: 10 }}
               />
               <YAxis 
                 yAxisId="wind"
                 orientation="right"
                 stroke="#10b981" 
-                fontSize={12}
+                fontSize={10}
                 domain={[0, 'dataMax + 5']}
+                tick={{ fontSize: 10 }}
               />
               <Tooltip content={<CustomTooltip />} />
               <Line
@@ -169,8 +169,8 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
       </div>
 
       {/* Precipitation Chart */}
-      <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6 mx-2 sm:mx-0">
-        <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 flex items-center gap-2">
+      <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6">
+        <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4 flex items-center gap-2">
           🌧️ Precipitation Forecast
         </h3>
         <div className="h-48 sm:h-64">
@@ -180,13 +180,15 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
               <XAxis 
                 dataKey="timeFormatted" 
                 stroke="#9ca3af" 
-                fontSize={12}
+                fontSize={10}
                 interval="preserveStartEnd"
+                tick={{ fontSize: 10 }}
               />
               <YAxis 
                 stroke="#9ca3af" 
-                fontSize={12}
+                fontSize={10}
                 domain={[0, 'dataMax + 1']}
+                tick={{ fontSize: 10 }}
               />
               <Tooltip content={<CustomTooltip />} />
               <Bar
@@ -207,25 +209,25 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
       </div>
 
       {/* Weather Pattern Analysis */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mx-2 sm:mx-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6">
           <h3 className="text-base sm:text-lg font-semibold text-white mb-3">🌡️ Temperature Range</h3>
           <div className="space-y-2">
-            <div className="flex justify-between">
-              <span className="text-gray-300 text-sm">High:</span>
-              <span className="text-orange-400 font-bold text-sm">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-300">High:</span>
+              <span className="text-orange-400 font-bold">
                 {Math.max(...chartData.map(d => d.temperature))}°C
               </span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-300 text-sm">Low:</span>
-              <span className="text-blue-400 font-bold text-sm">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-300">Low:</span>
+              <span className="text-blue-400 font-bold">
                 {Math.min(...chartData.map(d => d.temperature))}°C
               </span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-300 text-sm">Average:</span>
-              <span className="text-white font-bold text-sm">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-300">Average:</span>
+              <span className="text-white font-bold">
                 {Math.round(chartData.reduce((sum, d) => sum + d.temperature, 0) / chartData.length)}°C
               </span>
             </div>
@@ -235,21 +237,21 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
         <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6">
           <h3 className="text-base sm:text-lg font-semibold text-white mb-3">💨 Wind Analysis</h3>
           <div className="space-y-2">
-            <div className="flex justify-between">
-              <span className="text-gray-300 text-sm">Max Speed:</span>
-              <span className="text-green-400 font-bold text-sm">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-300">Max Speed:</span>
+              <span className="text-green-400 font-bold">
                 {Math.max(...chartData.map(d => d.windSpeed))} km/h
               </span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-300 text-sm">Min Speed:</span>
-              <span className="text-blue-400 font-bold text-sm">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-300">Min Speed:</span>
+              <span className="text-blue-400 font-bold">
                 {Math.min(...chartData.map(d => d.windSpeed))} km/h
               </span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-300 text-sm">Average:</span>
-              <span className="text-white font-bold text-sm">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-300">Average:</span>
+              <span className="text-white font-bold">
                 {Math.round(chartData.reduce((sum, d) => sum + d.windSpeed, 0) / chartData.length)} km/h
               </span>
             </div>
@@ -259,21 +261,21 @@ export function WeatherCharts({ hourlyData, city }: WeatherChartsProps) {
         <div className="backdrop-blur-lg bg-black/20 border border-white/20 rounded-2xl p-4 sm:p-6 sm:col-span-2 lg:col-span-1">
           <h3 className="text-base sm:text-lg font-semibold text-white mb-3">💧 Humidity Info</h3>
           <div className="space-y-2">
-            <div className="flex justify-between">
-              <span className="text-gray-300 text-sm">Max:</span>
-              <span className="text-blue-400 font-bold text-sm">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-300">Max:</span>
+              <span className="text-blue-400 font-bold">
                 {Math.max(...chartData.map(d => d.humidity))}%
               </span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-300 text-sm">Min:</span>
-              <span className="text-orange-400 font-bold text-sm">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-300">Min:</span>
+              <span className="text-orange-400 font-bold">
                 {Math.min(...chartData.map(d => d.humidity))}%
               </span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-300 text-sm">Average:</span>
-              <span className="text-white font-bold text-sm">
+            <div className="flex justify-between text-sm">
+              <span className="text-gray-300">Average:</span>
+              <span className="text-white font-bold">
                 {Math.round(chartData.reduce((sum, d) => sum + d.humidity, 0) / chartData.length)}%
               </span>
             </div>
