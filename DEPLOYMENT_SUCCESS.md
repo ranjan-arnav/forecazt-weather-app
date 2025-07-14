@@ -38,7 +38,7 @@
 ## Features Deployed:
 
 ✅ Open-Meteo weather API integration  
-✅ Cursor.com-inspired dark theme UI  
+✅ Modern dark theme UI  
 ✅ Interactive weather charts (temperature, humidity, wind, precipitation)  
 ✅ 7-day forecast with detailed insights  
 ✅ Mobile-responsive design  

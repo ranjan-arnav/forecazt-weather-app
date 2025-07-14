@@ -31,7 +31,7 @@ export function Header({ onSearchClick, onForecastClick }: HeaderProps) {
   return (
     <header className="fixed top-6 left-6 right-6 z-50">
       <nav className="backdrop-blur-lg bg-black/20 border border-white/10 rounded-2xl px-6 py-4 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-        {/* Logo - Cursor style */}
+        {/* Logo - Modern style */}
         <div className="flex items-center justify-between lg:justify-start">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -50,7 +50,7 @@ export function Header({ onSearchClick, onForecastClick }: HeaderProps) {
           </button>
         </div>
 
-        {/* Desktop Navigation - Cursor style */}
+        {/* Desktop Navigation - Modern style */}
         <div className="hidden lg:flex items-center gap-8">
           <button 
             onClick={handleSearchClick}
@@ -66,7 +66,7 @@ export function Header({ onSearchClick, onForecastClick }: HeaderProps) {
           </button>
         </div>
 
-        {/* Theme Toggle - Cursor style */}
+        {/* Theme Toggle - Modern style */}
         <div className="hidden lg:flex justify-end">
           <button
             onClick={toggleTheme}

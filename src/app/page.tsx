@@ -51,9 +51,9 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900">
       <Header onSearchClick={handleSearchClick} onForecastClick={handleForecastClick} />
       
-      {/* Hero Section with Cursor-style design */}
+      {/* Hero Section with modern design */}
       <section className="relative px-4 pt-24 pb-16 lg:pt-32 lg:pb-24">
-        {/* Enhanced Cursor-style background pattern */}
+        {/* Enhanced modern background pattern */}
         <div className="absolute inset-0 overflow-hidden opacity-30">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
           <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full mix-blend-multiply filter blur-3xl animate-pulse [animation-delay:2s]"></div>
@@ -61,7 +61,7 @@ export default function Home() {
         </div>
 
         <div className="relative max-w-6xl mx-auto text-center">
-          {/* Main heading with enhanced Cursor-style typography */}
+          {/* Main heading with enhanced modern typography */}
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 text-white leading-tight">
             The AI Weather
             <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">

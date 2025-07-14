@@ -1,12 +1,12 @@
 <!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
 
-# Weather App with Cursor.com Design System
+# Weather App with Modern Design System
 
-This is a Next.js weather application that replicates the design system and architecture of Cursor.com.
+This is a Next.js weather application that features a sleek, modern design system.
 
 ## Design System Guidelines
 
-### Cursor.com Architecture Principles
+### Modern Architecture Principles
 - **Glassmorphism**: Use backdrop-blur effects and translucent elements
 - **Gradient Backgrounds**: Complex layered gradients with CSS variables
 - **Interactive Animations**: Canvas-based hero animations, smooth transitions
@@ -22,7 +22,7 @@ This is a Next.js weather application that replicates the design system and arch
 ### Styling Conventions
 - Use Tailwind CSS utility classes extensively
 - Implement CSS variables for dynamic styling (--mask-x, --mask-y)
-- Follow Cursor's brand color tokens and spacing system
+- Follow modern brand color tokens and spacing system
 - Include motion-reduce preferences for accessibility
 - Implement radial gradient masks on interactive elements
 

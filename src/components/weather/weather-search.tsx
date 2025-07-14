@@ -81,7 +81,7 @@ export const WeatherSearch = forwardRef<WeatherSearchRef, WeatherSearchProps>(
         </div>
       </form>
 
-      {/* Quick access cities - Cursor style */}
+      {/* Quick access cities - Modern style */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

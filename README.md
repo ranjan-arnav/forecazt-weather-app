@@ -1,6 +1,6 @@
-# Weather App with Google Search Integration
+# Forecazt Weather App
 
-A beautiful, modern weather application that fetches real weather data using Google search results, built with Next.js and inspired by Cursor.com's design system.
+A beautiful, modern weather application that fetches real weather data using Open-Meteo API, built with Next.js and featuring a sleek modern design system.
 
 ## 🌟 Features
 
@@ -106,7 +106,7 @@ npm start
 ```
 src/
 ├── app/
-│   ├── globals.css          # Global styles with Cursor design system
+│   ├── globals.css          # Global styles with modern design system
 │   ├── layout.tsx           # Root layout with theme provider
 │   └── page.tsx             # Main weather app page
 ├── components/
@@ -141,7 +141,7 @@ src/
 
 ### Components
 - **Glass Effects**: Backdrop blur with border styling
-- **Button System**: Cursor-style interactive buttons
+- **Button System**: Modern interactive buttons
 - **Cards**: Glassmorphism weather information cards
 - **Navigation**: Fixed header with rounded design
 
@@ -207,7 +207,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
-- **Cursor.com** for the inspiration and design patterns
+- **Open-Meteo** for the free weather API service
 - **Next.js Team** for the excellent framework
 - **Tailwind CSS** for the utility-first styling approach
 - **Framer Motion** for smooth animations
