@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Weather App",
-  description: "A beautiful weather app inspired by Cursor.com design",
+  description: "a simple yet unique WeatherApp",
 };
 
 export default function RootLayout({
