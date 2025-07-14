@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.4",
     "@types/cheerio": "^0.22.35",
+    "autoprefixer": "^10.4.21",
     "cheerio": "^1.1.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.5",
@@ -22,7 +23,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

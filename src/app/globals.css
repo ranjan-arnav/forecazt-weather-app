@@ -2,21 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --mask-x: 50%;
-  --mask-y: 50%;
+/* Force dark theme */
+* {
+  box-sizing: border-box;
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-}
-
-body {
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  color: #ffffff;
 }
 
 /* Cursor-style glassmorphism effects */
